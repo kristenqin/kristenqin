@@ -16,7 +16,7 @@ Here are some ideas to get you started:
 -->
 
 <div>
-    <a href = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.deviantart.com%2Fexceptrea%2Fart%2FGamer-Room-Cyberpunk-912992607&psig=AOvVaw3ksRNRcElPy4y81ThWGtxd&ust=1676806025895000&source=images&cd=vfe&ved=0CA4QjRxqFwoTCJDpy677nv0CFQAAAAAdAAAAABAE"> my living space"</a>
+    <a href = "./assets/github_img.gif"> my living space</a>
 </div>
 
 - 🔭 I’m currently working on python
