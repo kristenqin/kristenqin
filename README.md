@@ -16,7 +16,7 @@ Here are some ideas to get you started:
 -->
 
 <div>
-    <a href = "./assets/github_img.gif"> my living space</a>
+    <a img = "./assets/github_img.gif"> my living space</a>
 </div>
 
 - 🔭 I’m currently working on python
