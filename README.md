@@ -16,7 +16,7 @@ Here are some ideas to get you started:
 -->
 
 <div>
-    <a img = "./assets/github_img.gif"> my living space</a>
+    <img src= "./assets/github_img.gif" alt = "my living space" style="zoom:150%;">
 </div>
 
 - 🔭 I’m currently working on python
