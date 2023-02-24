@@ -22,6 +22,6 @@ Here are some ideas to get you started:
 - 🔭 I’m currently working on python
 - 🌱 I’m currently learning principles of software engineering
 - 👯 I’m looking to collaborate on daily problems solving
-- 📫 How to reach me: yqin07184@gmail.con
+- 📫 How to reach me: yqin07184@gmail.com
 - 😄 Pronouns: it 
 - ⚡ Fun fact: sometimes farting alone is interesting
