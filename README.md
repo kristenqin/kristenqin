@@ -37,8 +37,8 @@ I build practical tools across product design, automation, frontend workflows, a
 ## GitHub Snapshot
 
 <p align="center">
-  <img height="165" src="https://github-readme-stats.vercel.app/api?username=kristenqin&show_icons=true&hide_border=true&rank_icon=github&include_all_commits=true" alt="Kristen Qin GitHub stats" />
-  <img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kristenqin&layout=compact&hide_border=true&langs_count=8" alt="Kristen Qin top languages" />
+  <img height="165" src="./profile/stats.svg" alt="Kristen Qin GitHub stats" />
+  <img height="165" src="./profile/top-langs.svg" alt="Kristen Qin top languages" />
 </p>
 
 <p align="center">
