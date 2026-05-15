@@ -76,3 +76,4 @@
 ---
 
 If you're building practical AI tools, workflow systems, design-to-code tooling, or learning products, we're probably thinking about similar problems.
+<!-- activity: 2026-05-15 -->
