@@ -55,3 +55,4 @@ Notes:
 
 - The workflow commits `.profile-activity.log` using your GitHub noreply email format so the contribution can be attributed to your account without exposing a personal email in the repo.
 - This GitHub-hosted flow keeps working even when your Mac is off.
+- If the Actions log shows `could not read Username for 'https://github.com': terminal prompts disabled`, it usually means `PROFILE_STREAK_PAT` is missing or invalid.

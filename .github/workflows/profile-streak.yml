@@ -21,11 +21,21 @@ jobs:
       COMMIT_EMAIL: ${{ github.actor_id }}+${{ github.repository_owner }}@users.noreply.github.com
 
     steps:
-      - name: Checkout repository with PAT
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
-          token: ${{ secrets.PROFILE_STREAK_PAT }}
           fetch-depth: 0
+          persist-credentials: false
+
+      - name: Validate PAT secret
+        env:
+          PROFILE_STREAK_PAT: ${{ secrets.PROFILE_STREAK_PAT }}
+        run: |
+          if [ -z "${PROFILE_STREAK_PAT}" ]; then
+            echo "Missing repository secret PROFILE_STREAK_PAT." >&2
+            echo "Add a fine-grained PAT with Contents: Read and write for this repository." >&2
+            exit 1
+          fi
 
       - name: Update activity marker
         run: |
@@ -53,6 +63,9 @@ jobs:
           git commit -m "chore: keep profile activity current"
 
       - name: Rebase and push
+        env:
+          PROFILE_STREAK_PAT: ${{ secrets.PROFILE_STREAK_PAT }}
         run: |
+          git remote set-url origin "https://x-access-token:${PROFILE_STREAK_PAT}@github.com/${GITHUB_REPOSITORY}.git"
           git pull --rebase origin "${GITHUB_REF_NAME}"
           git push origin "HEAD:${GITHUB_REF_NAME}"
