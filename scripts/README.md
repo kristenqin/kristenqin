@@ -39,4 +39,19 @@ After installation, the job will run every day at the configured local time.
 
 - The Mac still needs to be powered on and able to reach GitHub at the scheduled time.
 - The push needs working GitHub authentication on this machine.
-- If you want this to keep running even when your Mac is off, the next step would be a GitHub-hosted automation using your own PAT instead of the default Actions bot identity.
+
+## GitHub-Hosted Automation
+
+This repository also includes `.github/workflows/profile-streak.yml`, which runs on GitHub every day at `22:05` China Standard Time (`14:05 UTC`).
+
+To enable it:
+
+1. Create a GitHub personal access token that can write to this repository.
+   A fine-grained token with repository `Contents: Read and write` is enough for this workflow.
+2. Save it in this repository as the secret `PROFILE_STREAK_PAT`.
+3. Make sure GitHub contribution settings include private contributions if this repository is private.
+
+Notes:
+
+- The workflow commits `.profile-activity.log` using your GitHub noreply email format so the contribution can be attributed to your account without exposing a personal email in the repo.
+- This GitHub-hosted flow keeps working even when your Mac is off.

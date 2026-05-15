@@ -1,0 +1,58 @@
+name: Keep Profile Streak
+
+on:
+  schedule:
+    - cron: "5 14 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: profile-streak
+  cancel-in-progress: false
+
+jobs:
+  keep-streak:
+    runs-on: ubuntu-latest
+    env:
+      TZ: Asia/Shanghai
+      COMMIT_NAME: ${{ github.repository_owner }}
+      COMMIT_EMAIL: ${{ github.actor_id }}+${{ github.repository_owner }}@users.noreply.github.com
+
+    steps:
+      - name: Checkout repository with PAT
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.PROFILE_STREAK_PAT }}
+          fetch-depth: 0
+
+      - name: Update activity marker
+        run: |
+          target_date="$(date +%F)"
+          run_timestamp="$(date '+%Y-%m-%d %H:%M:%S %z')"
+
+          cat > .profile-activity.log <<EOF
+          last_run_date=${target_date}
+          last_run_timestamp=${run_timestamp}
+          source=github-actions
+          workflow_run=${GITHUB_RUN_ID}
+          EOF
+
+      - name: Commit change if needed
+        run: |
+          git config user.name "${COMMIT_NAME}"
+          git config user.email "${COMMIT_EMAIL}"
+          git add .profile-activity.log
+
+          if git diff --cached --quiet; then
+            echo "No changes detected."
+            exit 0
+          fi
+
+          git commit -m "chore: keep profile activity current"
+
+      - name: Rebase and push
+        run: |
+          git pull --rebase origin "${GITHUB_REF_NAME}"
+          git push origin "HEAD:${GITHUB_REF_NAME}"
